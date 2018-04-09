@@ -1,0 +1,12 @@
+1) ACTION:<nom_action>
+2) PHRASE:<position X>:<position Y>:<Phrase>
+3) SCROLL:<taille>:<vitesse>:<position y>:<Phrase>
+
+
+
+Exemple:
+
+PHRASE:XX:XX:ari en force
+ACTION:abeille
+SCROLL:X:X:XX:fin de la partie 
+
