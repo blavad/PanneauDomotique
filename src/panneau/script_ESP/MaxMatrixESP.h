@@ -143,18 +143,6 @@ public:
      */
     void setString(String str, int nbByte,int x,int y,bool value);
  
-    
-    /**
-     * Set letter at the specified coordinates
-     * c: The letter
-     * nbByte: The size of the letter
-     * x: X coordinate
-     * y: Y coordinate
-     * value: The value for this letter
-     */
-    void setWord(const char *mot, int len, int nbByte,int x,int y,bool value);
-
-
 
     /**
      * Draw the buffer on the matrix array

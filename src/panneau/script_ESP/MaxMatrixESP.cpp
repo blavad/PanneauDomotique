@@ -16,7 +16,7 @@ void MaxMatrixESP::init(uint32_t clock) {
 	pinMode(matrixCS, OUTPUT);
 	SPI.begin();
 	SPI.setDataMode(SPI_MODE0);
-	SPI.setClockDivider(SPI_CLOCK_DIV2);
+	SPI.setClockDivider(SPI_CLOCK_DIV128);
 
 	sendByteAll(MAX7219_REG_DECODEMODE, 0);
 	sendByteAll(MAX7219_REG_INTENSITY, matrixIntensity);
@@ -110,16 +110,16 @@ void MaxMatrixESP::set4ByteDrawing(const long int d[32], int x, int y, bool valu
 void MaxMatrixESP::setLetter(char c, int nbByte,int x,int y,bool value){
   switch (nbByte){
     case 1: 
-      set1ByteDrawing(_1ByteLetter_[c-'a'],x,y,value);
+      set1ByteDrawing(_1ByteLetter_[toupper(c)-' '],x,y,value);
     break;
     case 2:
-      set2ByteDrawing(_2ByteLetter_[c-'a'],x,y,value);
+      set2ByteDrawing(_2ByteLetter_[toupper(c)-' '],x,y,value);
     break;
     case 4:
-      set4ByteDrawing(_4ByteLetter_[c-'a'],x,y,value);
+      set4ByteDrawing(_4ByteLetter_[c-' '],x,y,value);
     break;
     default :
-      set1ByteDrawing(_1ByteLetter_[c-'a'],x,y,value);
+      set1ByteDrawing(_1ByteLetter_[c-' '],x,y,value);
     break; 
   }
 }
@@ -129,33 +129,21 @@ void MaxMatrixESP::setString(String str, int nbByte,int x,int y,bool value){
    for (int i =0; i< str.length();i++){
       switch (nbByte){
         case 1: 
-          setLetter(str[i],1,x+i*nbByte*8,y,value);
+          setLetter(str[i],1,x+i*nbByte*6,y,value);
         break;
         case 2 :
-          setLetter(str[i],2,x+i*nbByte*8,y,value);
+          setLetter(str[i],2,x+i*nbByte*6,y,value);
         break; 
         case 4:
-          setLetter(str[i],4,x+i*nbByte*8,y,value);
+          setLetter(str[i],4,x+i*nbByte*6,y,value);
         break;
         default :
-          setLetter(str[i],1,x+i*nbByte*8,y,value);
+          setLetter(str[i],1,x+i*nbByte*6,y,value);
         break; 
       }
   }
 }
 
-void MaxMatrixESP::setWord(const char *mot, int len, int nbByte,int x,int y,bool value){
-   for (int i =0; i< len;i++){
-      switch (nbByte){
-        case 1: 
-          set1ByteDrawing(_1ByteLetter_[mot[i]-'a'],x+i*nbByte*8,y,value);
-        break;
-        default :
-          set2ByteDrawing(_2ByteLetter_[mot[i]-'a'],x+i*nbByte*8,y,value);
-        break; 
-      }
-  }
-}
 
 void MaxMatrixESP::render() {
 	for (byte row = 1; row < 9; row++) {
