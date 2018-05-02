@@ -7,6 +7,6 @@ Réalisation d'un panneau domotique composé de :
 
 
 Fonctionnalités : 
-- Communication avec un autre programme par Sockets
+- Communication réseau avec un autre programme
 - Affichage de phrase, dessins, lettres, figures géométriques, etc
 - Utilisation d'un programme intéractif pour simuler un dessin sur le panneau
