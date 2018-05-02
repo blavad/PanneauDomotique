@@ -1,17 +1,17 @@
 # PanneauDomotique
 
-Réalisation d'un panneau domotique composé de :
+# Réalisation d'un panneau domotique composé de :
 
 - 1 ESP8266
 - n * p matrices de led de dimension 8x8 branchées en série
 
 
-Fonctionnalités : 
+# Fonctionnalités : 
 - Communication réseau avec un autre programme
 - Affichage de phrase, dessins, lettres, figures géométriques, etc
 - Utilisation d'un programme intéractif pour simuler un dessin sur le panneau
 
-Le panneau gère les réception de messages de la forme suivante :
+# Le panneau gère les réception de messages de la forme suivante :
   
   // Faire transiter un message
   1) SCROLL:T:V:YY:Mon message à afficher     
