@@ -25,5 +25,7 @@ Usage :
     - PHRASE:XX:YY:Ma message 
         - XX : Coordonnées horizontales
         - YY : Coordonnées horizontales
-        
-[alt text](https://github.com/davHub/PanneauDomotique/blob/master/images/demo.png)
+ 
+ Exemple d'utilisation du simulateur intéractif :
+ 
+![alt text](https://github.com/davHub/PanneauDomotique/blob/master/images/demo.png)
